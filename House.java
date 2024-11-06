@@ -90,6 +90,9 @@ public class House extends Building{
   }
   
   // Overriding Methods:
+  /**
+   * Displays all the options within the house. 
+   */
   public void showOptions() {
     System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n\n Specific Options at " + this.name + ":\n + hasDiningRoom() \n + nResidents()\n + isResident()\n + moveIn()\n + moveOut()");
   }

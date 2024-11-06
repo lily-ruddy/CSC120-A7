@@ -140,6 +140,14 @@ public class Library extends Building{
       System.out.println("- " + key + "\t\t Availability:" + collection.get(key));
     }
   }
+
+  // Overriding Methods:
+  /**
+   * Displays all the options within the library. 
+   */
+  public void showOptions() {
+    System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n\n Specific Options at " + this.name + ":\n + addTitle() \n + removeTitle()\n + isResident()\n + checkOut()\n + returnBook()\n + containsTitle()\n + isAvailable()\n + printCollection()");
+  }
  
   
   public static void main(String[] args) {

@@ -96,6 +96,14 @@ public class Cafe extends Building{
         this.nCreams = this.nCreams + nCreams; // restocks the creams 
     }
 
+    // Overriding Methods:
+    /**
+    * Displays all the options within the cafe. 
+    */
+    public void showOptions() {
+        System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n\n Specific Options at " + this.name + ":\n + sellCoffee()");
+    }
+
     
     public static void main(String[] args) {
         /* Creating cafe */
@@ -107,6 +115,17 @@ public class Cafe extends Building{
         System.out.println("-----------------------------------------------------");
         campusCafe.sellCoffee(10, 3, 2); // sell
         campusCafe.sellCoffee(15, 1, 11); // restock and sell 
+
+           /* Show Options */
+        System.out.println("-----------------------------------------------------");
+        campusCafe.showOptions();
+  
+        /* Navigating Cafe */
+        System.out.println("-----------------------------------------------------");
+        campusCafe.enter();
+        campusCafe.goUp();
+        campusCafe.goDown();
+        campusCafe.exit();
     }
     
 }
