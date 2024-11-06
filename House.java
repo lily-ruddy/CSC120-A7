@@ -7,9 +7,20 @@ public class House extends Building{
   private boolean hasDiningRoom;
   private boolean hasElevator;
 
-  // Constructor:
+  // Constructors:
+
+  /** 
+   * Default constructor for the House class.
+   */
+  public House(){
+    this("<Name Unknown>", "<Address Unknown>", 1, false,false);
+  }
+
+
+
+
   /**
-   * Constructor for the House class.
+   * Full constructor for the House class.
    * @param name; Name of the house.
    * @param address; Address of the house
    * @param nFloors; The number of floors in the house. Must be greater than or equal to 1.
@@ -116,8 +127,8 @@ public class House extends Building{
     if (this.activeFloor == -1) {
         throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
     }
-    if(this.hasElevator == false){
-      throw new RuntimeException(this.name + " doesn't have an elevator. Please use the stairs to navigate.");
+     if(this.hasElevator == false & Math.abs(floorNum - this.activeFloor) != 1){
+       throw new RuntimeException(this.name + " doesn't have an elevator. Please use the stairs to navigate.");
     }
     if (floorNum < 1 || floorNum > this.nFloors) {
         throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
@@ -128,6 +139,7 @@ public class House extends Building{
 
   public static void main(String[] args) {
     House baldwin = new House("Baldwin House", "15 Bedford Terrace", 5, false, false);
+    //House genHouse = new House();
 
     /* Move in and out */
     baldwin.moveIn("Lily");
@@ -148,7 +160,8 @@ public class House extends Building{
     /* Elevator? */
     System.out.println("-----------------------------------------------------");
     baldwin.enter();
-    //baldwin.goToFloor(4);
+    baldwin.goToFloor(4);
+    
 
   }
 

@@ -166,7 +166,7 @@ public class Library extends Building{
    * @return int floorNum; The floor number the elevator will take you
    */
   public void goToFloor(int floorNum) {
-    if(!this.hasElevator == true ){
+    if(this.hasElevator == false & Math.abs(floorNum - this.activeFloor) != 1){
       throw new RuntimeException(this.name + " doesn't have an elevator. Please use the stairs to navigate.");
     }
     if (this.activeFloor == -1) {
@@ -229,6 +229,7 @@ public class Library extends Building{
     System.out.println("-----------------------------------------------------");
     neilson.enter();
     neilson.goToFloor(4);
+    neilson.goToFloor(2);
     
     
   }

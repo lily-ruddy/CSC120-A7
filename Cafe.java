@@ -115,15 +115,15 @@ public class Cafe extends Building{
         if (floorNum < 1 || floorNum > this.nFloors) {
             throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
         }
-        System.out.println("Sorry you don't have access to level " + floorNum + " in " + this.name);
+        System.out.println("Sorry you don't have access to level " + floorNum + " in " + this.name +". You only have access to the ground floor.");
     }
 
-    /**
-     * Prevents people from leaving the ground floor. Employees only. 
-     */
-    public void goUp() {
-        System.out.println("Sorry you only have access to the ground floor.");
-    }
+    // /**
+    //  * Prevents people from leaving the ground floor. Employees only. 
+    //  */
+    // public void goUp() {
+    //     System.out.println("Sorry you only have access to the ground floor.");
+    // }
 
     public static void main(String[] args) {
         /* Creating cafe */
@@ -150,7 +150,7 @@ public class Cafe extends Building{
         /* Elevator? */
         System.out.println("-----------------------------------------------------");
         campusCafe.enter();
-        campusCafe.goToFloor(2);
+        campusCafe.goToFloor(3);
     }
     
 }
