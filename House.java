@@ -94,9 +94,22 @@ public class House extends Building{
     House baldwin = new House("Baldwin House", "15 Bedford Terrace", 5, false);
 
     /* Move in and out */
+    System.out.println("-----------------------------------------------------");
     baldwin.moveIn("Lily");
     baldwin.moveOut("Lily");
-    System.out.println(baldwin.isResident("Joe"));
+    baldwin.isResident("Joe");
+
+    /* Show Options */
+    System.out.println("-----------------------------------------------------");
+    baldwin.showOptions();
+
+    /* Navigating House */
+    System.out.println("-----------------------------------------------------");
+    baldwin.enter();
+    baldwin.goUp();
+    baldwin.goDown();
+    baldwin.exit();
+
   }
 
 }

@@ -14,6 +14,8 @@ public class CampusMap {
      * @param b the Building to add
      */
     public void addBuilding(Building b) {
+        /* Check if the building is already in the array list */
+
         System.out.println("Adding building...");
         buildings.add(b);
         System.out.println("-->Successfully added " + b.getName() + " to the map.");
@@ -25,6 +27,8 @@ public class CampusMap {
      * @return the removed Building
      */
     public Building removeBuilding(Building b) {
+        /* Check if the building is in the array list */
+
         System.out.println("Removing building...");
         buildings.remove(b);
         System.out.println("-->Successfully removed " + b.getName() + " to the map.");

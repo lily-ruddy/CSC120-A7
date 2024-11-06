@@ -176,6 +176,17 @@ public class Library extends Building{
     /* Print */
     System.out.println("-----------------------------------------------------");
     neilson.printCollection(); // prints collection
+
+    /* Show Options */
+    System.out.println("-----------------------------------------------------");
+    neilson.showOptions();
+  
+    /* Navigating Library */
+    System.out.println("-----------------------------------------------------");
+    neilson.enter();
+    neilson.goUp();
+    neilson.goDown();
+    neilson.exit();
     
 
 
