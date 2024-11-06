@@ -88,6 +88,13 @@ public class House extends Building{
       return false;
     }
   }
+
+  // Overriding Methods:
+  public void showOptions() {
+    System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n Specific Options at " + this.name + ":\n + hasDiningRoom() \n + nResidents()\n + isResident()\n + moveIn()\n + moveOut()");
+  }
+
+  
   
 
   public static void main(String[] args) {
