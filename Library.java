@@ -9,6 +9,7 @@ public class Library extends Building{
 
   // Attribute:
   private Hashtable<String, Boolean> collection;
+  private boolean hasElevator; 
   
   // Costructor:
   /**
@@ -16,11 +17,22 @@ public class Library extends Building{
    * @param name; Name of the library.
    * @param address; Address of the library.
    * @param nFloors; Number of floors of the library. Must be greater than equal to 1.
+   * @param hasElevator; True = has an elevator in the library, False = doesn't have an elevator in the library
    */
-  public Library(String name, String address, int nFloors) {
+  public Library(String name, String address, int nFloors, boolean hasElevator) {
     super(name, address, nFloors); // extends Building
     System.out.println("You have built a library: 📖");
     this.collection = new Hashtable<String, Boolean>();
+    this.hasElevator = hasElevator; 
+  }
+
+  // Getters:
+  /**
+   * Getter for if the library has an elevator.
+   * @return boolean; True = has an elevator in the library, False = doesn't have an elevator in the library
+   */
+  public boolean getHasElevator(){
+    return this.hasElevator;
   }
 
   // Methods:
@@ -148,12 +160,29 @@ public class Library extends Building{
   public void showOptions() {
     System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n\n Specific Options at " + this.name + ":\n + addTitle() \n + removeTitle()\n + isResident()\n + checkOut()\n + returnBook()\n + containsTitle()\n + isAvailable()\n + printCollection()");
   }
- 
+
+  /**
+   * If the library has an elevator, use the elevator to go directly to any of the floor numbers in the building. 
+   * @return int floorNum; The floor number the elevator will take you
+   */
+  public void goToFloor(int floorNum) {
+    if(!this.hasElevator == true ){
+      throw new RuntimeException(this.name + " doesn't have an elevator. Please use the stairs to navigate.");
+    }
+    if (this.activeFloor == -1) {
+      throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
+    }
+    if (floorNum < 1 || floorNum > this.nFloors) {
+      throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
+    }
+    System.out.println("You are now on floor #" + floorNum + " of " + this.name);
+    this.activeFloor = floorNum;
+  }
   
   public static void main(String[] args) {
     /* Creating Library */
     System.out.println("-----------------------------------------------------");
-    Library neilson = new Library("Neilson Library", "7 Neilson Drive", 5);
+    Library neilson = new Library("Neilson Library", "7 Neilson Drive", 5, true);
     System.out.println(neilson);
 
     /* Adding & Removing */
@@ -196,8 +225,11 @@ public class Library extends Building{
     neilson.goDown();
     neilson.exit();
 
-
-
+    /* Elevator? */
+    System.out.println("-----------------------------------------------------");
+    neilson.enter();
+    neilson.goToFloor(4);
+    
     
   }
 }
