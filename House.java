@@ -8,16 +8,26 @@ public class House extends Building{
   private boolean hasElevator;
 
   // Constructors:
-
+  /* Overloaded */
   /** 
-   * Default constructor for the House class.
+   * Generic constructor for the House class. 
    */
   public House(){
-    this("<Name Unknown>", "<Address Unknown>", 1, false,false);
+    super("<Name Unknown>", "<Address Unknown>", 1);
   }
 
-
-
+  /* Overloaded */
+  /**
+   * Constuctor for the House class with no dining room and no elevator. 
+   * @param name; Name of the house.
+   * @param address Address of the house. 
+   * @param nFloors Number of floors in the house. Must be greater than or equal to 1.
+   */
+  public House(String name, String address, int nFloors){
+    super(name, address, nFloors);
+    this.hasDiningRoom = false; // defaults false
+    this.hasElevator = false; // defaults false
+  }
 
   /**
    * Full constructor for the House class.
@@ -139,7 +149,6 @@ public class House extends Building{
 
   public static void main(String[] args) {
     House baldwin = new House("Baldwin House", "15 Bedford Terrace", 5, false, false);
-    //House genHouse = new House();
 
     /* Move in and out */
     baldwin.moveIn("Lily");
@@ -160,7 +169,17 @@ public class House extends Building{
     /* Elevator? */
     System.out.println("-----------------------------------------------------");
     baldwin.enter();
-    baldwin.goToFloor(4);
+    //baldwin.goToFloor(4);
+
+    /* Overloading */
+    System.out.println("-----------------------------------------------------");
+    House house = new House(); // generic house doesn't need name or address to be created
+    house.showOptions();
+
+    System.out.println("-----------------------------------------------------");
+    House albright = new House("Albright", "Bedford Terrace", 4);
+    albright.enter();
+
     
 
   }
