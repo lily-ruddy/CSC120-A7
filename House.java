@@ -26,7 +26,7 @@ public class House extends Building{
    * Getter for if the house has a dining room.
    * @return boolean; True = has a dining room, False = doesn't have a dining room
    */
-  public boolean hasDiningRoom(){
+  public boolean getHasDiningRoom(){
     return this.hasDiningRoom;
   }
 
@@ -34,7 +34,7 @@ public class House extends Building{
    * Getter for the number of residents in the house.
    * @return int size, size of the house
    */
-  public int nResidents(){
+  public int getNResidents(){
     return this.residents.size();
   }
   
@@ -88,23 +88,19 @@ public class House extends Building{
       return false;
     }
   }
-
+  
   // Overriding Methods:
   public void showOptions() {
-    System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n Specific Options at " + this.name + ":\n + hasDiningRoom() \n + nResidents()\n + isResident()\n + moveIn()\n + moveOut()");
+    System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)\n\n Specific Options at " + this.name + ":\n + hasDiningRoom() \n + nResidents()\n + isResident()\n + moveIn()\n + moveOut()");
   }
-
-  
-  
 
   public static void main(String[] args) {
     House baldwin = new House("Baldwin House", "15 Bedford Terrace", 5, false);
 
     /* Move in and out */
-    System.out.println("-----------------------------------------------------");
     baldwin.moveIn("Lily");
     baldwin.moveOut("Lily");
-    baldwin.isResident("Joe");
+    System.out.println(baldwin.isResident("Joe"));
 
     /* Show Options */
     System.out.println("-----------------------------------------------------");
@@ -116,7 +112,6 @@ public class House extends Building{
     baldwin.goUp();
     baldwin.goDown();
     baldwin.exit();
-
   }
 
 }
