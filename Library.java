@@ -12,9 +12,32 @@ public class Library extends Building{
   private Hashtable<String, Boolean> collection;
   private boolean hasElevator; 
   
-  // Costructor:
+  // Costructors:
+  /* Overloaded */
   /**
-   * Constructor for Library class.
+   * Generic constructor for Library class.
+   */
+  public Library(){
+    super("<Library Unknown>","<Address Unknown>",1);
+    System.out.println("You have built a library: 📖");
+    this.collection = new Hashtable<String, Boolean>();
+  }
+
+  /* Overloaded */
+  /**
+   * Constructor for Library class that has no elevator.
+   * @param name; Name of the library
+   * @param address; Address of the library
+   * @param nFloors; Number of floors of the library
+   */
+  public Library(String name, String address, int nFloors){
+    super(name, address, nFloors);
+    System.out.println("You have built a library: 📖");
+    this.collection = new Hashtable<String, Boolean>();
+  }
+  
+  /**
+   * Full constructor for Library class.
    * @param name; Name of the library.
    * @param address; Address of the library.
    * @param nFloors; Number of floors of the library. Must be greater than equal to 1.
@@ -231,6 +254,15 @@ public class Library extends Building{
     neilson.enter();
     neilson.goToFloor(4);
     neilson.goToFloor(2);
+
+    /* Overloading */
+    System.out.println("-----------------------------------------------------");
+    Library library = new Library();
+    library.printCollection();
+
+    System.out.println("-----------------------------------------------------");
+    Library hillyer = new Library("Hillyer", "22 Elm St",2);
+    hillyer.addTitle("Art Book");
     
     
   }

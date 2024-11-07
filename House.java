@@ -13,7 +13,9 @@ public class House extends Building{
    * Generic constructor for the House class. 
    */
   public House(){
-    super("<Name Unknown>", "<Address Unknown>", 1);
+    super("<House Unknown>", "<Address Unknown>", 1);
+    System.out.println("You have built a house: 🏠");
+    this.residents = new ArrayList<String>();
   }
 
   /* Overloaded */
@@ -25,8 +27,8 @@ public class House extends Building{
    */
   public House(String name, String address, int nFloors){
     super(name, address, nFloors);
-    this.hasDiningRoom = false; // defaults false
-    this.hasElevator = false; // defaults false
+    System.out.println("You have built a house: 🏠");
+    this.residents = new ArrayList<String>();
   }
 
   /**
@@ -179,8 +181,6 @@ public class House extends Building{
     System.out.println("-----------------------------------------------------");
     House albright = new House("Albright", "Bedford Terrace", 4);
     albright.enter();
-
-    
 
   }
 

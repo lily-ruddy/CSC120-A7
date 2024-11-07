@@ -6,7 +6,21 @@ public class Cafe extends Building{
     private int nCreams; 
     private int nCups; 
 
-    // Constructor:
+    // Constructors:
+
+    /* Overloaded */
+    /**
+     * Generic constructor for Cafe class.
+     */
+    public Cafe(){
+        super("<Cafe Unknown>", "<Address Unknown>", 1);
+        System.out.println("You have built a cafe: ☕");
+        this.nCoffeeOunces = 50;
+        this.nSugarPackets = 25;
+        this.nCreams = 25;
+        this.nCups = 20;
+    }
+
     /**
      * Creates Cafe class. 
      * @param name; Name of the cafe   
@@ -82,6 +96,27 @@ public class Cafe extends Building{
         } 
     }
 
+    /* Overloaded */
+    /** 
+     * Sells a standard cup of coffee from the cafe. The regular is a 10-ounce coffee with 2 sugar packets and 3 splashes of cream
+     */
+    public void sellCoffee(){
+        /* Checks to see if there are enough cups */
+        if(nCups>0 & 12 <= this.nCoffeeOunces & nSugarPackets >= 2 & nCreams >= 3){
+            System.out.println("The " + this.name + " brewed a 10-ounce coffee with 2 sugar packets and 3 creams.");
+            this.nCups = this.nCups -1; // subtracts one cup
+            this.nCoffeeOunces = this.nCoffeeOunces - 12; // subtracts the coffee ounces
+            this.nSugarPackets = this.nSugarPackets - 2; // subtracts the sugar packets
+            this.nCreams = this.nCreams - 3; // subtracts the creams 
+
+        } else{
+            System.out.println("----RESTOCKING---");
+            this.restock(50, 20, 20, 15); // restocks the amount that we need to make the coffee
+            System.out.println("The " + this.name + " brewed a 10-ounce coffee with 2 sugar packets and 3 creams.");
+        } 
+    }
+
+
     /**
      * Restocks the inventory of the cafe when there are not enough supplies to make a coffee.
      * @param int nCoffeeOunces; Number of ounces of coffee restocked  
@@ -118,13 +153,6 @@ public class Cafe extends Building{
         System.out.println("Sorry you don't have access to level " + floorNum + " in " + this.name +". You only have access to the ground floor.");
     }
 
-    // /**
-    //  * Prevents people from leaving the ground floor. Employees only. 
-    //  */
-    // public void goUp() {
-    //     System.out.println("Sorry you only have access to the ground floor.");
-    // }
-
     public static void main(String[] args) {
         /* Creating cafe */
         System.out.println("-----------------------------------------------------");
@@ -151,6 +179,17 @@ public class Cafe extends Building{
         System.out.println("-----------------------------------------------------");
         campusCafe.enter();
         campusCafe.goToFloor(3);
-    }
+
+        /* Overloading */
+        System.out.println("-----------------------------------------------------");
+        Cafe cafe = new Cafe();
+        cafe.sellCoffee(10, 2, 2);
+        cafe.sellCoffee();
+        System.out.println(cafe.nCoffeeOunces);
+
+
+
+
+    }   
     
 }
