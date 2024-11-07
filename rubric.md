@@ -24,11 +24,11 @@ ___YES__ 1 pt: The `Cafe` class has a `goToFloor(...)` method that doesn't permi
 
 ### Level 2: Method `Overloads` (3 pts)
 
-___YES__ 1 pt: The `House` class includes at least 2 overloaded methods
+___NO__ 1 pt: The `House` class includes at least 2 overloaded methods
 
-___YES__ 1 pt: The `Library` class includes at least 2 overloaded methods
+___NO__ 1 pt: The `Library` class includes at least 2 overloaded methods
 
-___YES__ 1 pt: The `Cafe` class includes at least 2 overloaded methods
+___PART__ 1 pt: The `Cafe` class includes at least 2 overloaded methods
 
 ### Level 3: `CampusMap.java` (2 pts)
 
